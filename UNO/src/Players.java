@@ -60,13 +60,13 @@ public class Players {
 		}
 	}
 	
-	public void addComputer() {
+	public void addComputer() {	//Method to generate the computer player.
 		name = "Computer";
 		Players comp = new Players(name);
 		players.add(comp);
 	}
 	
-	public void addPlayer() {
+	public void addPlayer() {	//Method to generate new players
 		System.out.println("Please enter a name for Player:");
 		name = scnr.next();
 		name = name.substring(0, 1).toUpperCase() + name.substring(1);
@@ -75,7 +75,7 @@ public class Players {
 		isThereAPlayer();
 	}
 	
-	public void isThereAPlayer() {
+	public void isThereAPlayer() {	//Method to check for more players
 		System.out.println("Do you have players to add? Y or N");
 		String response = scnr.next();
 		if (response.toUpperCase().equals("Y")) {
