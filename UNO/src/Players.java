@@ -4,11 +4,17 @@ public class Players {
 	
 	private String name;
 	private ArrayList<Cards> hand;
+	private ArrayList<Players> players = new ArrayList<Players>();
+	private Scanner scnr = new Scanner(System.in);
 	
 	public Players(String name)
 	{
 		this.name = name;
 		hand = new ArrayList<Cards>();
+	}
+	
+	public Players() {
+		addPlayer(name);
 	}
 	
 	/**
@@ -52,6 +58,13 @@ public class Players {
 		{
 			aCard.printInfo();
 		}
+	}
+	
+	public void addPlayer(String name) {
+		Players aPlayer = new Players(name);
+		System.out.println("Please enter a name for Player:");
+		name = scnr.next();
+		players.add(aPlayer);
 	}
 
 	
