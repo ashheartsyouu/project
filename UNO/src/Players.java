@@ -24,6 +24,21 @@ public class Players {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+
+	/**
+	 * @return the hand
+	 */
+	public ArrayList<Cards> getHand() {
+		return hand;
+	}
+
+	/**
+	 * @param hand the hand to set
+	 */
+	public void setHand(ArrayList<Cards> hand) {
+		this.hand = hand;
+	}
 
 	public void takeCard(Cards aCard)
 	{
@@ -38,6 +53,8 @@ public class Players {
 			aCard.printInfo();
 		}
 	}
+
+	
 
 
 }
