@@ -5,9 +5,9 @@ public class Base {
 		Scanner scnr = new Scanner(System.in);
 		System.out.println("Welcome to UNO!");
 		System.out.println("Please enter Player 1's name: ");
-		String p1 = scnr.nextLine();
+		String p1 = scnr.next();
 		System.out.println("Please enter Player 2's name: ");
-		String p2 = scnr.nextLine();
+		String p2 = scnr.next();
 		
 		
 		
