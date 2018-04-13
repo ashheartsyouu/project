@@ -6,20 +6,14 @@ public class Base {
 		System.out.println("Welcome to UNO!");
 		System.out.println("Please enter Player 1's name: ");
 		String p1 = scnr.nextLine();
-		System.out.println("Please enter Player 2's name, or type 'n' if there is none: ");
+		System.out.println("Please enter Player 2's name: ");
 		String p2 = scnr.nextLine();
 		
 		
 		
 		Deck deck = new Deck();
 		Players player1 = new Players(p1);
-		
-		/*if(p2.toLowerCase() != "n") {
-		
-		}
-		else {
-			Players player2 = new Players(p2);
-		}*/
+
 		
 		Players player2 = new Players(p2);
 		
