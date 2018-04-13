@@ -1,8 +1,10 @@
 import java.util.*;
 public class Base {
+	private Scanner scnr = new Scanner(System.in);
+	
 	public static void main(String[] args) {
 			// TODO Auto-generated method stub
-		Scanner scnr = new Scanner(System.in);
+		
 		System.out.println("Welcome to UNO!");
 		System.out.println("Please enter Player 1's name: ");
 		String p1 = scnr.next();
