@@ -4,7 +4,7 @@ public class Players {
 	
 	private String name;
 	private ArrayList<Cards> hand;
-	private ArrayList<Players> players = new ArrayList<Players>();
+	public ArrayList<Players> players = new ArrayList<Players>();
 	private Scanner scnr = new Scanner(System.in);
 	
 	public Players(String name)
@@ -14,7 +14,7 @@ public class Players {
 	}
 	
 	public Players() {
-		addPlayer(name);
+		
 	}
 	
 	/**
@@ -60,14 +60,40 @@ public class Players {
 		}
 	}
 	
-	public void addPlayer(String name) {
-		Players aPlayer = new Players(name);
+	public void addComputer() {
+		name = "Computer";
+		Players comp = new Players(name);
+		players.add(comp);
+	}
+	
+	public void addPlayer() {
 		System.out.println("Please enter a name for Player:");
 		name = scnr.next();
+		name = name.substring(0, 1).toUpperCase() + name.substring(1);
+		Players aPlayer = new Players(name);
 		players.add(aPlayer);
+		isThereAPlayer();
 	}
-
 	
-
+	public void isThereAPlayer() {
+		System.out.println("Do you have players to add? Y or N");
+		String response = scnr.next();
+		if (response.toUpperCase().equals("Y")) {
+			addPlayer();
+		}
+		else { 
+			return;
+		}
+		
+	}
+	
+	public void printPlayers() {
+		int i = 0;
+		for (Players thePlayer: players) {
+			System.out.println("Player " + (i + 1) + " is " + players.get(i).getName());
+			i++;
+		}
+	}
+	
 
 }
