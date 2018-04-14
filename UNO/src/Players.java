@@ -66,31 +66,6 @@ public class Players {
 		players.add(comp);
 	}
 	
-	public void addPlayer() {	//Method to generate new players
-		System.out.println("Please enter a name for Player:");
-		name = scnr.next();
-		name = name.substring(0, 1).toUpperCase() + name.substring(1);
-		Players aPlayer = new Players(name);
-		players.add(aPlayer);
-		isThereAPlayer();
-	}
-	
-	public void isThereAPlayer() {	//Method to check for more players
-		System.out.println("Do you have players to add? Y or N");
-		String response = scnr.next();
-		if (response.toUpperCase().equals("Y")) {
-			addPlayer();
-		}
-		else if (response.toUpperCase().equals("N")){ 
-			return;
-		}
-		else {
-			System.out.println("Please type a valid repsonse.");
-			isThereAPlayer();
-		}
-		
-	}
-	
 	public void printPlayers() {
 		int i = 0;
 		for (Players thePlayer: players) {
