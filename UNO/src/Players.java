@@ -81,8 +81,12 @@ public class Players {
 		if (response.toUpperCase().equals("Y")) {
 			addPlayer();
 		}
-		else { 
+		else if (response.toUpperCase().equals("N")){ 
 			return;
+		}
+		else {
+			System.out.println("Please type a valid repsonse.");
+			isThereAPlayer();
 		}
 		
 	}
