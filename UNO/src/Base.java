@@ -25,25 +25,59 @@ public class Base {
 		
 		
 		
-		
 		Deck deck = new Deck();
 		
+		System.out.print("First Card: ");
+		deck.gimmeACard().printInfo(); //still in the works
 		
-// 		for(int i = 0; i < 7; ++i) {
-// 			player1.takeCard(deck.gimmeACard());
+		System.out.println(p1 + "'s turn. What would you like to do?");
+		System.out.println("Your options are: \n" + "1: Place card on deck \n" + "2: Pick up card \n" + "3: See Hand \n" + "4: Finish Turn \n" + "5: See options again");
+		int action = scnr.nextInt();
+	
+		switch(action) {
+		case 1: 
+			System.out.println("What card do you want to use?: "); //figure out a way to correlate the numbers with the hands so it works
+			int cardNum = scnr.nextInt();
 			
-// 			player2.takeCard(deck.gimmeACard());
-// 		}
-				
-// 		player1.printHand();
-// 		player2.printHand();
+			System.out.println("Player placed the card: " + cardNum);
+			break;
+		case 2:
+			System.out.println("Here is your card: ");
+			player1.takeCard(deck.gimmeACard()); //need to make an array list if player's card to do
+			break;
+		case 3:  //how to go back to switch on the top after using it here
+			player1.printHand();
+			System.out.println("Your options are: \n" + "1: Place card on deck \n" + "2: Pick up card \n" + "3: See Hand \n" + "4: Finish Turn \n" + "5: See options again");
+			action = scnr.nextInt();
+			break;
+		case 4: 
+			System.out.println("Finishing turn");
+			break;
+		case 5: //how to go back to switch on the top after using it here
+			System.out.println("Your options are: \n" + "1: Place card on deck \n" + "2: Pick up card \n" + "3: See Hand \n" + "4: Finish Turn \n" + "5: See options again");
+			action = scnr.nextInt();
+		default:
+			System.out.println("Please pick a valid option");	
+			break;
+		}
 		
-// 		System.out.print("First Card: ");
-// 		deck.gimmeACard().printInfo();
-		
-// 		System.out.println(p1 + "'s turn. What would you like to do?");
 		
 		
+		
+		
+	}
+	
+	public void gameplay() { //still under construction (for now)
+		/*if(cardNum.equals(firstCard)) {
+		 * faceCard = cardNum
+		 * }
+		 * else if(cardNum != firstCard) {
+		 * System.out.println("Take card back");
+		 * }
+		 * 
+		 * if(
+		 * 
+		 */
 	}
 	
 
