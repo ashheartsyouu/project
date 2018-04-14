@@ -16,12 +16,13 @@ public class Base {
 		
 		if (response.toUpperCase().equals("Y")) {//Allows for players to be created and added to the players ArrayList
 			thePlayer.isThereAPlayer();	//This function will call the add player function, if "y"
+			thePlayer.printPlayers();	//Shows all players, including computer.
 		}
 		else {
-			System.out.println("Goodbye");
+			System.out.println("Goodbye!");
 		}
 		
-		thePlayer.printPlayers();	//Shows all players, including computer.
+		
 		
 		
 		
