@@ -3,7 +3,9 @@ public class Base {
 	public ArrayList<Players> players = new ArrayList<Players>();
 	public static Scanner scnr = new Scanner(System.in);
 	public static Base b;
-
+	public Players p = new Players(); //RECENT
+	
+	
 	public Base () {
 		
 		System.out.println("Welcome to UNO!");
@@ -11,15 +13,20 @@ public class Base {
 		String response = scnr.next();
 		addComputer();
 		
-		
 		if (response.toUpperCase().equals("Y")) {//Allows for players to be created and added to the players ArrayList
  			addPlayer();
-			printPlayers();
+ 			printPlayers();
  		}
  		else {
 			System.out.println("Goodbye!");
  		}
 		
+		PickUpCards deck = new PickUpCards();
+		
+		for(Players p: players) {
+			p.generateHand();
+			p.printHand();
+		}
 		
     
     
@@ -29,7 +36,7 @@ public class Base {
     
     } //end of base constructor
     
-    public void addPlayer() { //Method to generate new players and to check if there are more players to be added
+   public void addPlayer() { //Method to generate new players and to check if there are more players to be added
 		System.out.println("Please enter a name for Player:");
 		String name = scnr.next();
 		name = name.substring(0, 1).toUpperCase() + name.substring(1);
@@ -54,7 +61,6 @@ public class Base {
 			}
 			else {
 				System.out.println("Please type a valid repsonse.");
-
 			}
 		}
 		
@@ -68,10 +74,12 @@ public class Base {
 	
 	public void printPlayers() {
 		int i = 0;
+		System.out.println("-------------------------------------------");
 		for (Players thePlayer: players) {
 			System.out.println("Player " + (i + 1) + " is " + players.get(i).getName());
 			i++;
 		}
+		System.out.println("-------------------------------------------");
 	}
 	
 	public static void main(String[] args) {
@@ -80,4 +88,3 @@ public class Base {
 	}
 
 }
-    
