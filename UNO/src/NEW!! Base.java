@@ -11,13 +11,15 @@ public class Base {
 		String response = scnr.next();
 		addComputer();
 		
+		
 		if (response.toUpperCase().equals("Y")) {//Allows for players to be created and added to the players ArrayList
  			addPlayer();
+			printPlayers();
  		}
  		else {
 			System.out.println("Goodbye!");
  		}
-		printPlayers();
+		
 		
     
     
