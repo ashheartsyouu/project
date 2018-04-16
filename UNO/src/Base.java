@@ -10,6 +10,15 @@ public class Base {
 		System.out.println("Would you like to begin? Y or N?");
 		String response = scnr.next();
 		
+		if (response.toUpperCase().equals("Y")) {//Allows for players to be created and added to the players ArrayList
+ 			thePlayer.isThereAPlayer();	//This function will call the add player function, if "y"
++			thePlayer.printPlayers();	//Shows all players, including computer.
+ 		}
+ 		else {
+-			System.out.println("Goodbye");
++			System.out.println("Goodbye!");
+ 		}
+		
 		
 		/*
 		System.out.println("Welcome to UNO!");
