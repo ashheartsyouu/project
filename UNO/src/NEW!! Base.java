@@ -1,19 +1,20 @@
 import java.util.*;
 public class Base {
-	public ArrayList<Players> players = new ArrayList<Players>();
-	public static Scanner scnr = new Scanner(System.in);
-	public static Base b;
-	public Players p = new Players(); //RECENT
+	private ArrayList<Players> players = new ArrayList<Players>();
+	private static Scanner scnr = new Scanner(System.in);
+	private static Base b;
+	private Players p = new Players();
+	private Players currPlayer; 
 	
 	
-	public Base () {
+	public Base() {
 		
 		System.out.println("Welcome to UNO!");
 		System.out.println("Would you like to begin? Y or N?");
 		String response = scnr.next();
 		addComputer();
 		
-		if (response.toUpperCase().equals("Y")) {//Allows for players to be created and added to the players ArrayList
+		if (response.toUpperCase().equals("Y")) {//Starts the set-up for the game
  			addPlayer();
  			printPlayers();
  		}
@@ -26,7 +27,11 @@ public class Base {
 		for(Players p: players) {
 			p.generateHand();
 			p.printHand();
-		}
+		}	
+		
+		System.out.println("-------------------------------------------");
+		System.out.print("First Card: ");
+		deck.gimmeACard().printInfo();
 		
     
     
@@ -36,7 +41,7 @@ public class Base {
     
     } //end of base constructor
     
-   public void addPlayer() { //Method to generate new players and to check if there are more players to be added
+  public void addPlayer() { //Method to generate new players and to check if there are more players to be added
 		System.out.println("Please enter a name for Player:");
 		String name = scnr.next();
 		name = name.substring(0, 1).toUpperCase() + name.substring(1);
@@ -82,9 +87,26 @@ public class Base {
 		System.out.println("-------------------------------------------");
 	}
 	
+	public Players getCurrentPlayer() {
+		return currPlayer;
+	}
+	
+	public void playerTurn() {
+		//INSERT THE CODE FOR THE CHOICES THE PLAYERS CAN DO
+		System.out.println("PLEASE FIX ME: playerTurn() method");
+	}
+	
+	public void nextTurn() {
+		for (Players p: players) {
+			if (1 == 1) {
+				System.out.println("PLEASE FIX ME: nextTurn() method");
+			}
+		}
+	}
+	
+	
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 			b = new Base();
 	}
-
-}
