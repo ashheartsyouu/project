@@ -6,6 +6,8 @@ public class Players {
 	private ArrayList<Cards> hand;
 	public ArrayList<Players> players = new ArrayList<Players>();
 	private Scanner scnr = new Scanner(System.in);
+	private PickUpCards deck = new PickUpCards();
+	private String currPlayer;
 	
 	public Players(String name)
 	{
@@ -56,23 +58,22 @@ public class Players {
 		System.out.println(name + "'s Hand:");
 		for(Cards aCard: hand)
 		{
-			aCard.printInfo();
+			generateHand();
 		}
 	}
-	
-	public void addComputer() {	//Method to generate the computer player.
-		name = "Computer";
-		Players comp = new Players(name);
-		players.add(comp);
+
+	public void generateHand() {
+		deck.gimmeACard().printInfo();
 	}
 	
-	public void printPlayers() {
+	public String getCurrentPlayer() {
 		int i = 0;
-		for (Players thePlayer: players) {
-			System.out.println("Player " + (i + 1) + " is " + players.get(i).getName());
-			i++;
+		for(Players ap: players) {
+			currPlayer = ap.getName();
 		}
+		return currPlayer;
 	}
+	
 	
 
 }
