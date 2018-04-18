@@ -4,7 +4,8 @@ public class Base {
 	private static Scanner scnr = new Scanner(System.in);
 	private static Base b;
 	private Players p = new Players();
-	private Players currPlayer; 
+	 
+	private PickUpCards deck = new PickUpCards();
 	
 	
 	public Base() {
@@ -22,12 +23,13 @@ public class Base {
 			System.out.println("Goodbye!");
  		}
 		
-		PickUpCards deck = new PickUpCards();
-		
-		for(Players p: players) {
-			p.generateHand();
+		/*
+		for(Players p: players) { //repeat 7 times with this?
 			p.printHand();
-		}	
+			p.generateHand();
+			}
+			*/
+			
 		
 		System.out.println("-------------------------------------------");
 		System.out.print("First Card: ");
@@ -81,20 +83,69 @@ public class Base {
 		int i = 0;
 		System.out.println("-------------------------------------------");
 		for (Players thePlayer: players) {
-			System.out.println("Player " + (i + 1) + " is " + players.get(i).getName());
+			System.out.println("Player " + (i + 1) + " is " + thePlayer.getName());
 			i++;
 		}
 		System.out.println("-------------------------------------------");
 	}
 	
-	public Players getCurrentPlayer() {
-		return currPlayer;
+	public void playerTurn() { //need to fix
+		System.out.println(p.currPlayer +"'s turn. What would you like to do?");
+		System.out.println("Your options are: \n" + "1: Place card on deck \n" + "2: Pick up card \n" + "3: See Hand \n" + "4: Finish Turn \n" + "5: See options again");
+		int action = scnr.nextInt();
 	}
+		
+		/*if(p.getCurrentPlayer().equals("Computer")) {
+		
+		}
+		else {
+		for(int i = 0; i < 7; ++i) { //to print out cards
+			p.printHand();
+			p.generateHand();
+		}
+		}*/
+		
 	
-	public void playerTurn() {
-		//INSERT THE CODE FOR THE CHOICES THE PLAYERS CAN DO
+	/*	
+	boolean repeat = false;
+	while(repeat = true) {
+		switch(action) {
+		case 1: 
+			System.out.println("What card do you want to use?: "); //figure out a way to correlate the numbers with the hands so it works
+			int cardNum = scnr.nextInt()-1;
+			System.out.println("Player placed the card: " + cardNum);
+			repeat = false;
+			break;
+		case 2:
+			System.out.println("Here is your card: ");
+			getCurrentPlayer().takeCard(deck.gimmeACard()); //need to make an array list if player's card to do
+			repeat = false;
+			break;
+		case 3:  //how to go back to switch on the top after using it here
+			getCurrentPlayer().printHand();
+			System.out.println("Your options are: \n" + "1: Place card on deck \n" + "2: Pick up card \n" + "3: See Hand \n" + "4: Finish Turn \n" + "5: See options again");
+			action = scnr.nextInt();
+			repeat = true;
+			break;
+		case 4: 
+			System.out.println("Finishing turn");
+			repeat = false;
+			break;
+		case 5: //how to go back to switch on the top after using it here
+			System.out.println("Your options are: \n" + "1: Place card on deck \n" + "2: Pick up card \n" + "3: See Hand \n" + "4: Finish Turn \n" + "5: See options again");
+			action = scnr.nextInt();
+			repeat = false;
+		default:
+			System.out.println("Please pick a valid option");
+			System.out.println("Your options are: \n" + "1: Place card on deck \n" + "2: Pick up card \n" + "3: See Hand \n" + "4: Finish Turn \n" + "5: See options again");
+			repeat = true;
+			break;
+		}
 		System.out.println("PLEASE FIX ME: playerTurn() method");
 	}
+	}
+	*/
+		
 	
 	public void nextTurn() {
 		for (Players p: players) {
@@ -109,4 +160,7 @@ public class Base {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 			b = new Base();
+			b.playerTurn();
+			
 	}
+}
