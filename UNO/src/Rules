@@ -1,0 +1,89 @@
+//moved addPlayer(),addComputer(), and printPlayer() from Base to Rules class
+//added beginGame(), which has the welcome text and adds computer + player
+
+import java.util.*;
+
+public class Rules {
+
+	private ArrayList<Players> players = new ArrayList<Players>();
+	private static Scanner scnr = new Scanner(System.in);
+	private Players p = new Players();
+
+	private PickUpCards deck = new PickUpCards();
+
+	public void addPlayer() { // Method to generate new players and to check if there are more players to be
+								// added
+		System.out.println("Please enter a name for Player:");
+		String name = scnr.next();
+		name = name.substring(0, 1).toUpperCase() + name.substring(1);
+		Players Player = new Players(name);
+		players.add(Player);
+
+		boolean done = false;
+
+		while (done == false) {
+			System.out.println("Do you have players to add? Y or N");
+			String response = scnr.next();
+			if (response.toUpperCase().equals("Y")) {
+				System.out.println("Please enter a name for Player:");
+				name = scnr.next();
+				name = name.substring(0, 1).toUpperCase() + name.substring(1);
+				Players newPlayer = new Players(name);
+				players.add(newPlayer);
+			} else if (response.toUpperCase().equals("N")) {
+				done = true;
+				return;
+			} else {
+				System.out.println("Please type a valid repsonse.");
+			}
+		}
+
+	}
+
+	public void addComputer() { // Method to generate the computer player.
+		String name = "Computer";
+		Players comp = new Players(name);
+		players.add(comp);
+	}
+
+	public void printPlayers() {
+		int i = 0;
+		System.out.println("-------------------------------------------");
+		for (Players thePlayer : players) {
+			System.out.println("Player " + (i + 1) + " is " + thePlayer.getName());
+			i++;
+		}
+		System.out.println("-------------------------------------------");
+	}
+
+	public void beginGame() {
+		System.out.println("Welcome to UNO!");
+		System.out.println("Would you like to begin? Y or N?");
+		String response = scnr.next();
+		addComputer();
+
+		if (response.toUpperCase().equals("Y")) {// Starts the set-up for the game
+			addPlayer();
+			printPlayers();
+		} else {
+			System.out.println("Goodbye!");
+		}
+
+		for (Players p : players) {
+			p.printHand();
+			if (p.getName().equals("Computer")) {
+				System.out.println("Computer has been given cards");
+				for (int i = 0; i <= 6; i++) {
+					deck.gimmeACard();
+				}
+			} else {
+				for (int i = 0; i <= 6; i++) {
+					p.generateHand();
+				}
+
+			}
+		}
+
+	}
+
+}
